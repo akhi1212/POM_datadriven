@@ -1,0 +1,7 @@
+Advantage
+
+Minimise duplicacy  of code
+Reduce development efforts
+Reduce development time
+Reduce maintenance effort and time
+Increase re usability of Code.
