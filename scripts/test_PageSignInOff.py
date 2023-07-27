@@ -1,17 +1,24 @@
+import time
 from utitlity import  Initiatebrowser
-from Pages import Login
-
+from Pages.Login import LoginPage
+from locators_testdata import configReader
+import pytest
 
 
 class TestPers:
 
     def test_Validatepom(self):
-        driver = Initiatebrowser.startAnyBrowser()
-        loginP = Login.LoginPage(driver)
+        # driver = Initiatebrowser.startAnyBrowser()
+        loginP = LoginPage(self.driver)
         loginP.clicksingIn()
-        loginP.enterUsername("admin")
-        loginP.enterPassword("admin")
+        read_usr_value = configReader.readConfigData('Details', 'username')
+        loginP.enterUsername(read_usr_value)
+        # loginP.enterUsername()
+        read_pass_value = configReader.readConfigData('Details', 'password')
+        loginP.enterPassword(read_pass_value)
         loginP.clickSubmitButton()
-        Initiatebrowser.closeBrowser()
+        time.sleep(2)
+        loginP.clickSignoff()
+        time.sleep(2)
 
 
